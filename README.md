@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Advanced Carbon-Style Select Component
 
-## Getting Started
+​A high-performance, fully customizable, and accessible Select/Dropdown component for React and Next.js.
+​Designed with pixel-perfect precision inspired by the IBM Carbon Design System (https://carbondesignsystem.com/components/dropdown/usage/), this component features virtualization for handling large datasets (1,000+ items), extensive theming, and multiple layout variants including fluid and multi-select modes.
 
-First, run the development server:
+📸 Screenshots
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Screenshots
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Gray90FilterableMultiselect](drop_down_select/screenshots/Gray90 Filterable Multiselect.jpg)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+![Gray10Multiselect](drop_down_select/screenshots/Gray10 Multiselect.jpg)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![WhiteFluidDropDown](drop_down_select/screenshots/White Fluid DropDown.jpg)
 
-## Learn More
+![DarkDropDown](drop_down_select/screenshots/Dark Dropdown.jpg)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+​✨ Key Features
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+​🎨 4 Native Themes: Full support for Carbon themes: White, Gray 10, Gray 90, and Dark (High Contrast).
+​📐 7 Layout Variants: 
+​Dropdown (Standard)
+​Inline (Transparent background)
+​Fluid & Fluid Condensed
+​Multiselect
+​Filterable Multiselect (With search input)
+​Fluid Multiselect
+​🚀 High Performance: Uses Virtualization (react-window) to render thousands of options instantly without lag.
+​✅ Advanced Multi-Selection: 
+​Checkbox UI with active states.
+​Badge counter (e.g., "20 items") with a quick clear button.
+​🔍 Isolated Filtering: Search functionality is scoped strictly to filterable variants, preserving state across other modes.
+​♿️ Accessible: Built on top of Headless UI for full keyboard navigation and screen reader support.
+​📱 Responsive: Fully styled using Tailwind CSS.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+​🛠️ Installation
+
+
+git clone https://github.com/parsabdr-dev/Dropdown-Select-with-react.js-and-next.js.git
+
+
+💻 Usage
+​Here is a basic example of how to implement the component in your Next.js/React page:
+
