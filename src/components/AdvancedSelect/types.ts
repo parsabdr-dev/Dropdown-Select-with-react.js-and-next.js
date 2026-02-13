@@ -1,5 +1,12 @@
-export type Theme = 'light' | 'gray-10' | 'gray-90' | 'dark';
-export type Variant = 'default' | 'fluid' | 'inline';
+export type Theme = 'white' | 'gray-10' | 'gray-90' | 'gray-100';
+export type Variant = 
+  | 'dropdown' 
+  | 'inline' 
+  | 'fluid' 
+  | 'fluid-condensed' 
+  | 'multiselect' 
+  | 'filterable-multiselect' 
+  | 'fluid-multiselect';
 
 export interface SelectItem {
   id: string | number;
@@ -18,8 +25,7 @@ export interface AdvancedSelectProps {
   multiple?: boolean;
   disabled?: boolean;
   className?: string;
-  selectAllLabel?: string;
-  clearAllLabel?: string;
-  theme?: Theme; 
-  variant?: Variant; 
+  theme?: Theme;
+  variant?: Variant;
+  label?: string;
 }
