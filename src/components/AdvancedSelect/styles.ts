@@ -8,16 +8,16 @@ export const themeStyles: Record<Theme, string> = {
 };
 
 export const getVariantClasses = (variant: Variant) => {
-  const base = "relative flex items-center justify-between px-4 transition-all duration-75 border outline-none focus:ring-2 focus:ring-blue-600";
+  const base = "relative flex items-center justify-between px-4 transition-all duration-75 border outline-none cursor-pointer";
   
   const variants: Record<string, string> = {
-    'dropdown': `${base} h-10 w-full rounded-none`,
-    'inline': `${base} h-10 w-auto min-w-[160px] border-none !bg-transparent`,
-    'fluid': `${base} h-14 w-full border-x-0 border-t-0 border-b rounded-none pt-4`,
-    'fluid-condensed': `${base} h-10 w-full border-x-0 border-t-0 border-b rounded-none pt-2`,
-    'multiselect': `${base} h-10 w-full rounded-none`,
-    'filterable-multiselect': `${base} h-10 w-full rounded-none`,
-    'fluid-multiselect': `${base} h-14 w-full border-x-0 border-t-0 border-b rounded-none pt-4`,
+    'dropdown': `${base} h-10 w-full rounded-none focus:ring-2 focus:ring-blue-600`,
+    'inline': `${base} h-10 w-auto min-w-[160px] border-none !bg-transparent hover:bg-gray-200/50`,
+    'fluid': `${base} h-14 w-full border-x-0 border-t-0 border-b rounded-none pt-4 bg-gray-100`,
+    'fluid-condensed': `${base} h-10 w-full border-x-0 border-t-0 border-b rounded-none pt-2 bg-gray-100`,
+    'multiselect': `${base} h-10 w-full rounded-none focus:ring-2 focus:ring-blue-600`,
+    'filterable-multiselect': `${base} h-10 w-full rounded-none focus:ring-2 focus:ring-blue-600`,
+    'fluid-multiselect': `${base} h-14 w-full border-x-0 border-t-0 border-b rounded-none pt-4 bg-gray-100`,
   };
 
   return variants[variant] || variants['dropdown'];
@@ -25,10 +25,12 @@ export const getVariantClasses = (variant: Variant) => {
 
 export const optionItemClasses = (active: boolean, selected: boolean, theme: Theme) => {
   const isDark = theme === 'gray-90' || theme === 'dark';
-  const activeBg = isDark ? 'bg-[#4c4c4c]' : 'bg-[#e5e5e5]';
-  const selectedBg = isDark ? 'bg-[#353535]' : 'bg-transparent'; // در کربن معمولا فقط چک‌باکس تغییر میکند
   
+  const activeBg = isDark ? 'bg-[#4c4c4c]' : 'bg-[#e5e5e5]';
+  
+  const selectedBg = selected ? (isDark ? 'bg-[#353535]' : 'bg-[#e0e0e0]') : ''; 
+
   return `relative cursor-pointer select-none py-3 px-4 text-sm transition-colors flex items-center gap-3 ${
-    active ? activeBg : selected ? selectedBg : ''
+    active ? activeBg : ''
   } ${isDark ? 'text-white' : 'text-gray-900'}`;
 };

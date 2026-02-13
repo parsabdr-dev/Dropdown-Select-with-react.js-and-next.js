@@ -1,68 +1,42 @@
-import { useMemo, useState } from 'react';
+import { useState, useMemo } from 'react';
 import { SelectItem } from './types';
-import { filterItems, groupItems, areAllSelected } from './utils';
 
-interface UseAdvancedSelectParams {
+interface UseAdvancedSelectProps {
   items: SelectItem[];
   value?: SelectItem[];
   onChange: (selected: SelectItem[]) => void;
-  multiple: boolean;
+  multiple?: boolean;
+  isFilterable?: boolean; 
 }
 
 export const useAdvancedSelect = ({
   items,
-  value = [],
+  value,
   onChange,
-  multiple,
-}: UseAdvancedSelectParams) => {
+  multiple = false,
+  isFilterable = false,
+}: UseAdvancedSelectProps) => {
   const [query, setQuery] = useState('');
-  const [selected, setSelected] = useState<SelectItem[]>(value);
 
-  const filteredItems = useMemo(() => filterItems(items, query), [items, query]);
-  const groupedItems = useMemo(() => groupItems(filteredItems), [filteredItems]);
-  const flatItems = useMemo(
-    () => Object.values(groupedItems).flat(),
-    [groupedItems]
-  );
+  const selected = useMemo(() => {
+    if (!value) return [];
+    return Array.isArray(value) ? value : [value];
+  }, [value]);
 
-  const isAllSelected = areAllSelected(filteredItems, selected);
-
-  const toggleItem = (item: SelectItem) => {
-    if (!multiple) {
-      setSelected([item]);
-      onChange([item]);
-      return;
+  const flatItems = useMemo(() => {
+    if (isFilterable && query) {
+      const lowerQuery = query.toLowerCase();
+      return items.filter((item) =>
+        item.label.toLowerCase().includes(lowerQuery)
+      );
     }
-
-    const exists = selected.some(s => s.id === item.id);
-    const newSelected = exists
-      ? selected.filter(s => s.id !== item.id)
-      : [...selected, item];
-
-    setSelected(newSelected);
-    onChange(newSelected);
-  };
-
-  const selectAll = () => {
-    setSelected(filteredItems);
-    onChange(filteredItems);
-  };
-
-  const clearAll = () => {
-    setSelected([]);
-    onChange([]);
-  };
+    return items;
+  }, [items, query, isFilterable]);
 
   return {
     query,
     setQuery,
     selected,
-    filteredItems,
-    groupedItems,
     flatItems,
-    isAllSelected,
-    toggleItem,
-    selectAll,
-    clearAll,
   };
 };
