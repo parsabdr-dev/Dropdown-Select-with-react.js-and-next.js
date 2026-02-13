@@ -7,7 +7,7 @@
 
 ## Screenshots
 
-![Gray90FilterableMultiselect](drop_down_select/screenshots/Gray90_Filterable_Multiselect.jpg)
+![Gray90FilterableMultiselect](screenshots/Gray90_Filterable_Multiselect.jpg)
 
 ![Gray10Multiselect](drop_down_select/screenshots/Gray10_Multiselect.jpg)
 
