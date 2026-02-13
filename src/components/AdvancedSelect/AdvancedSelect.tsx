@@ -2,7 +2,7 @@
 
 import { Fragment } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
-import { ChevronDownIcon, CheckIcon } from '@heroicons/react/20/solid';
+import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 import { FixedSizeList as List } from 'react-window';
 
@@ -21,9 +21,9 @@ export default function AdvancedSelect({
   disabled = false,
 }: AdvancedSelectProps) {
   
-  // تنظیم خودکار قابلیت‌ها بر اساس نوع Variant
   const isMultiple = variant.includes('multiselect');
   const isFilterable = variant.includes('filterable');
+  const isFluid = variant.includes('fluid');
 
   const {
     query,
@@ -37,29 +37,44 @@ export default function AdvancedSelect({
     multiple: isMultiple,
   });
 
-  const isFluid = variant.includes('fluid');
+  const clearSelection = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onChange([]);
+  };
 
   return (
-    <div className={clsx("flex flex-col w-full", variant === 'inline' && "flex-row items-center gap-4")}>
-      {!isFluid && <label className="text-xs text-gray-500 mb-2">{label}</label>}
+    <div className={clsx("flex flex-col w-full font-sans", variant === 'inline' && "flex-row items-center gap-4")}>
+      {!isFluid && <label className="text-[12px] text-gray-500 mb-1">{label}</label>}
       
       <Listbox value={selected} onChange={onChange} multiple={isMultiple} disabled={disabled}>
         <div className="relative">
           <Listbox.Button className={clsx(getVariantClasses(variant), themeStyles[theme])}>
-            <div className="flex flex-col items-start overflow-hidden">
+            <div className="flex items-center gap-2 overflow-hidden flex-1">
               {isFluid && <span className="absolute top-1 text-[10px] text-gray-500">{label}</span>}
+              
+              {/* بخش شمارنده (Badge) برای Multiselect */}
+              {isMultiple && selected.length > 0 && (
+                <div className="flex items-center bg-black text-white rounded-full px-2 py-0.5 text-[11px] font-bold">
+                  {selected.length}
+                  <XMarkIcon 
+                    className="h-3 w-3 ml-1 cursor-pointer hover:text-red-400" 
+                    onClick={clearSelection}
+                  />
+                </div>
+              )}
+
               <span className="block truncate text-sm">
                 {selected.length === 0 
                   ? placeholder 
-                  : isMultiple ? `${selected.length} items selected` : selected[0].label}
+                  : isMultiple ? placeholder : selected[0].label}
               </span>
             </div>
-            <ChevronDownIcon className="h-5 w-5 opacity-50" />
+            <ChevronDownIcon className="h-5 w-5 opacity-50 shrink-0" />
           </Listbox.Button>
 
           <Transition as={Fragment} leave="transition ease-in duration-100" leaveFrom="opacity-100" leaveTo="opacity-0">
             <Listbox.Options className={clsx(
-              "absolute z-50 mt-0 w-full overflow-hidden shadow-md border focus:outline-none",
+              "absolute z-50 mt-px w-full overflow-hidden shadow-lg border focus:outline-none",
               themeStyles[theme]
             )}>
               {isFilterable && (
@@ -69,11 +84,12 @@ export default function AdvancedSelect({
                     placeholder="Filter..."
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
+                    autoFocus
                   />
                 </div>
               )}
 
-              <List height={200} itemCount={flatItems.length} itemSize={40} width="100%">
+              <List height={240} itemCount={flatItems.length} itemSize={40} width="100%">
                 {({ index, style }) => {
                   const item = flatItems[index];
                   const isItemSelected = selected.some(s => s.id === item.id);
@@ -84,13 +100,23 @@ export default function AdvancedSelect({
                       value={item}
                       style={style}
                       className={({ active }) => optionItemClasses(active, isItemSelected, theme)}
-                    >
-                      <div className="flex items-center justify-between w-full">
-                        <span className={clsx("truncate", isItemSelected ? "font-semibold" : "font-normal")}>
-                          {item.label}
-                        </span>
-                        {isItemSelected && <CheckIcon className="h-4 w-4 text-blue-600" />}
-                      </div>
+
+>
+                      {isMultiple && (
+                        <div className={clsx(
+                          "w-4 h-4 border flex items-center justify-center transition-colors",
+                          isItemSelected ? "bg-blue-600 border-blue-600" : "border-gray-400 bg-transparent"
+                        )}>
+                          {isItemSelected && (
+                            <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                            </svg>
+                          )}
+                        </div>
+                      )}
+                      <span className={clsx("truncate", isItemSelected && !isMultiple ? "font-semibold" : "font-normal")}>
+                        {item.label}
+                      </span>
                     </Listbox.Option>
                   );
                 }}

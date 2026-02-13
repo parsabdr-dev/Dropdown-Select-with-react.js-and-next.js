@@ -1,13 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import clsx from 'clsx';
 import AdvancedSelect from '@/components/AdvancedSelect/AdvancedSelect';
 import { Theme, Variant, SelectItem } from '@/components/AdvancedSelect/types';
-import clsx from 'clsx';
 
-const mockItems: SelectItem[] = Array.from({ length: 100 }).map((_, i) => ({
+const mockItems: SelectItem[] = Array.from({ length: 1000 }).map((_, i) => ({
   id: i,
-  label: `Option ${i + 1}`,
+  label:`Option ${i + 1}`,
   value: `opt-${i}`,
 }));
 
@@ -20,7 +20,7 @@ export default function CarbonDemoPage() {
     { label: 'White', value: 'white' },
     { label: 'Gray 10', value: 'gray-10' },
     { label: 'Gray 90', value: 'gray-90' },
-    { label: 'Gray 100', value: 'gray-100' },
+    { label: 'Dark', value: 'dark' }, // تغییر نام طبق درخواست شما
   ];
 
   const variants: { label: string; value: Variant }[] = [
@@ -34,21 +34,20 @@ export default function CarbonDemoPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f4f4f4] p-8 font-sans">
+    <div className="min-h-screen bg-[#f4f4f4] p-8 font-sans text-black">
       <div className="max-w-5xl mx-auto bg-white shadow-sm border border-gray-200">
         
-        {/* Header مشابه سایت Carbon */}
         <div className="p-6 border-b border-gray-200">
-          <h1 className="text-3xl mb-8">Live demo</h1>
+          <h1 className="text-3xl mb-8 font-light">Live demo</h1>
           
-          <div className="grid grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {/* Theme Selector */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm text-gray-600">Theme selector</label>
+              <label className="text-sm text-gray-600 font-medium">Theme selector</label>
               <select 
                 value={theme} 
                 onChange={(e) => setTheme(e.target.value as Theme)}
-                className="h-10 border border-gray-300 px-2 bg-white outline-none focus:border-blue-600"
+                className="h-10 border border-gray-300 px-2 bg-white outline-none focus:border-blue-600 transition-colors cursor-pointer"
               >
                 {themes.map(t => <option key={t.value} value={t.value}>{t.label}</option>)}
               </select>
@@ -56,11 +55,11 @@ export default function CarbonDemoPage() {
 
             {/* Variant Selector */}
             <div className="flex flex-col gap-2">
-              <label className="text-sm text-gray-600">Variant selector</label>
+              <label className="text-sm text-gray-600 font-medium">Variant selector</label>
               <select 
                 value={variant} 
                 onChange={(e) => setVariant(e.target.value as Variant)}
-                className="h-10 border border-gray-300 px-2 bg-white outline-none focus:border-blue-600"
+                className="h-10 border border-gray-300 px-2 bg-white outline-none focus:border-blue-600 transition-colors cursor-pointer"
               >
                 {variants.map(v => <option key={v.value} value={v.value}>{v.label}</option>)}
               </select>
@@ -69,8 +68,8 @@ export default function CarbonDemoPage() {
 
           {/* محوطه نمایش کامپوننت اصلی */}
           <div className={clsx(
-            "p-20 border border-dashed border-gray-300 flex items-center justify-center transition-colors",
-            theme === 'gray-90' || theme === 'gray-100' ? "bg-[#161616]" : "bg-white"
+            "p-24 border border-dashed border-gray-300 flex items-center justify-center transition-all duration-300",
+            (theme === 'gray-90' || theme === 'dark') ? "bg-[#161616]" : "bg-white"
           )}>
             <div className="w-full max-w-md">
               <AdvancedSelect
@@ -86,7 +85,10 @@ export default function CarbonDemoPage() {
           </div>
         </div>
 
-        
+        <div className="p-6 text-xs text-gray-400 flex justify-between">
+          <span>Carbon Design System Simulation</span>
+          <span>Showing 1,000 items with Virtual Scrolling</span>
+        </div>
       </div>
     </div>
   );

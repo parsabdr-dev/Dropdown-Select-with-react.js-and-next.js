@@ -1,4 +1,4 @@
-export type Theme = 'white' | 'gray-10' | 'gray-90' | 'gray-100';
+export type Theme = 'white' | 'gray-10' | 'gray-90' | 'dark';
 export type Variant = 
   | 'dropdown' 
   | 'inline' 
@@ -21,11 +21,8 @@ export interface AdvancedSelectProps {
   value?: SelectItem[];
   onChange: (selected: SelectItem[]) => void;
   placeholder?: string;
-  searchable?: boolean;
-  multiple?: boolean;
-  disabled?: boolean;
-  className?: string;
   theme?: Theme;
   variant?: Variant;
   label?: string;
+  disabled?: boolean;
 }
