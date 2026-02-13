@@ -7,13 +7,13 @@
 
 ## Screenshots
 
-![Gray90FilterableMultiselect](drop_down_select/screenshots/Gray90 Filterable Multiselect.jpg)
+![Gray90FilterableMultiselect](drop_down_select/screenshots/Gray90_Filterable_Multiselect.jpg)
 
-![Gray10Multiselect](drop_down_select/screenshots/Gray10 Multiselect.jpg)
+![Gray10Multiselect](drop_down_select/screenshots/Gray10_Multiselect.jpg)
 
-![WhiteFluidDropDown](drop_down_select/screenshots/White Fluid DropDown.jpg)
+![WhiteFluidDropDown](drop_down_select/screenshots/White_Fluid_DropDown.jpg)
 
-![DarkDropDown](drop_down_select/screenshots/Dark Dropdown.jpg)
+![DarkDropDown](drop_down_select/screenshots/Dark_Dropdown.jpg)
 
 
 
