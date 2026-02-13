@@ -1,3 +1,6 @@
+export type Theme = 'light' | 'gray-10' | 'gray-90' | 'dark';
+export type Variant = 'default' | 'fluid' | 'inline';
+
 export interface SelectItem {
   id: string | number;
   label: string;
@@ -17,4 +20,6 @@ export interface AdvancedSelectProps {
   className?: string;
   selectAllLabel?: string;
   clearAllLabel?: string;
+  theme?: Theme; 
+  variant?: Variant; 
 }

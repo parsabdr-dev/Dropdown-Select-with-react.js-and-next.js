@@ -2,38 +2,47 @@
 
 import { useState } from 'react';
 import AdvancedSelect from '@/components/AdvancedSelect/AdvancedSelect';
-import type { SelectItem } from '@/components/AdvancedSelect/types';
+import { SelectItem } from '@/components/AdvancedSelect/types';
 
-export default function TestSelectPage() {
-  const [value, setValue] = useState<SelectItem[]>([]);
+const mockItems: SelectItem[] = Array.from({ length: 1000 }).map((_, i) => ({
+  id: i,
+  label: `Option ${i}`,
+  value: `opt-${i}`,
+  group: i < 500 ? 'Group A' : 'Group B',
+  disabled: i % 10 === 0
+}));
 
-const items: SelectItem[] = Array.from({ length: 1000 }, (_, i) => {
-  return {
-    id: i,
-    label:` Option ${i}`,
-    value: `option-${i}`,
-    group:
-      i % 3 === 0
-        ? 'Group A'
-        : i % 3 === 1
-        ? 'Group B'
-        : 'Group C',
-     disabled: i % 50 === 0,
-  };
-});
+export default function Home() {
+  const [selected, setSelected] = useState<SelectItem[]>([]);
 
   return (
-    <div className="p-10 space-y-6">
-      <h1 className="text-xl font-bold">Advanced Select Demo</h1>
+    <div className="flex min-h-screen flex-col items-center justify-start bg-gray-50 p-20 dark:bg-black">
+      <div className="w-full max-w-2xl space-y-12">
+        
+        <div>
+          <h2 className="mb-4 text-sm font-mono text-gray-500">Theme: Gray 10 | Variant: Fluid</h2>
+          <AdvancedSelect
+            items={mockItems}
+            onChange={setSelected}
+            theme="gray-10"
+            variant="fluid"
+            placeholder="Choose an option"
+            multiple
+          />
+        </div>
 
-      <AdvancedSelect
-        items={items}
-        value={value}
-        onChange={setValue}
-        placeholder="Choose options..."
-        searchable
-        multiple
-      />
+        <div>
+          <h2 className="mb-4 text-sm font-mono text-gray-500">Theme: Dark | Variant: Default</h2>
+          <AdvancedSelect
+            items={mockItems}
+            onChange={setSelected}
+            theme="dark"
+            variant="default"
+            placeholder="Select from dark menu"
+          />
+        </div>
+
+      </div>
     </div>
   );
 }

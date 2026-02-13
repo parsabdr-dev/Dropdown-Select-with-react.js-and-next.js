@@ -1,10 +1,21 @@
-export const buttonClasses =
-  'relative w-full cursor-pointer rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500';
+import { Theme, Variant } from './types';
 
-export const optionsContainerClasses =
-  'absolute z-10 mt-1 max-h-80 w-full overflow-hidden rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm';
+export const themeStyles: Record<Theme, string> = {
+  'light': 'bg-white text-gray-900 border-gray-300',
+  'gray-10': 'bg-[#f4f4f4] text-gray-900 border-gray-200',
+  'gray-90': 'bg-[#393939] text-white border-gray-700',
+  'dark': 'bg-[#161616] text-white border-gray-800',
+};
 
-export const optionItemClasses = (active: boolean) =>
-  `relative cursor-pointer select-none py-2 pl-10 pr-4 ${
-    active ? 'bg-blue-100 text-blue-900' : 'text-gray-900'
+export const variantStyles: Record<Variant, string> = {
+  'default': 'w-full max-w-md rounded-lg border',
+  'fluid': 'w-full border-b-2 border-x-0 border-t-0 rounded-none',
+  'inline': 'inline-flex w-auto min-w-[200px] rounded-lg border',
+};
+
+export const optionItemClasses = (active: boolean, theme: Theme) => {
+  const activeStyles = theme === 'dark' || theme === 'gray-90' ? 'bg-blue-900 text-white' : 'bg-blue-100 text-blue-900';
+  return `relative cursor-pointer select-none py-2 pl-10 pr-4 transition-colors ${
+    active ? activeStyles : ''
   }`;
+};
