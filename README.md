@@ -46,9 +46,12 @@
 
 ​Here is a basic example of how to implement the component in your Next.js/React page:
 
-import { useState } from 'react';
-import AdvancedSelect from '@/components/AdvancedSelect/AdvancedSelect';
-import { SelectItem } from '@/components/AdvancedSelect/types';
+                import { useState } from 'react';
+
+                import AdvancedSelect from '@/components/AdvancedSelect/AdvancedSelect';
+
+                import { SelectItem } from '@/components/AdvancedSelect/types';
+
 
 // 1. Define your data
 const items: SelectItem[] = [
