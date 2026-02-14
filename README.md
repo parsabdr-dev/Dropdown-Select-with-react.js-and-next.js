@@ -99,53 +99,20 @@ export default function MyPage() {
 
 
 
-💻 Usage
-Here is a basic example of how to implement the component in your Next.js/React page:
-
-TypeScript
-        import { useState } from 'react';
-        import AdvancedSelect from '@/components/AdvancedSelect/AdvancedSelect';
-        import { SelectItem } from '@/components/AdvancedSelect/types';
-
-// 1. Define your data
-const items: SelectItem[] = [
-  { id: 1, label: 'Option 1', value: 'opt-1' },
-  { id: 2, label: 'Option 2', value: 'opt-2' },
-  // ... supports 1000+ items
-];
-
-export default function MyPage() {
-  const [selected, setSelected] = useState<SelectItem[]>([]);
-
-  return (
-    <div className="p-10">
-      <AdvancedSelect
-        label="Select Label"
-        placeholder="Choose an option"
-        items={items}
-        value={selected}
-        onChange={setSelected}
-        
-        // Configuration
-        theme="gray-10"           // white | gray-10 | gray-90 | dark
-        variant="multiselect"     // dropdown | fluid | filterable-multiselect | ...
-      />
-    </div>
-  );
-}
 
 
 ⚙️ API Documentation
+
 Props (AdvancedSelectProps)
 
-items	SelectItem[]	Required	Array of data objects to display in the list.		
-value	SelectItem[]	[]	The currently selected item(s).		
-onChange	(items: SelectItem[]) => void	Required	Callback function fired when selection changes.		
-theme	Theme	white'	Color theme of the component.		
-variant	Variant	dropdown'	Layout and functional mode of the component.		
-label	string	Label'	The label text displayed above or inside the input.		
-placeholder	string	Choose...'	Text displayed when no selection is made.		
-disabled	boolean	FALSE	Disables interaction with the component.		
+        items	SelectItem[]	Required	Array of data objects to display in the list.		
+        value	SelectItem[]	[]	The currently selected item(s).		
+        onChange	(items: SelectItem[]) => void	Required	Callback function fired when selection changes.		
+        theme	Theme	white'	Color theme of the component.		
+        variant	Variant	dropdown'	Layout and functional mode of the component.		
+        label	string	Label'	The label text displayed above or inside the input.		
+        placeholder	string	Choose...'	Text displayed when no selection is made.		
+        disabled	boolean	FALSE	Disables interaction with the component.		
 
 
 
