@@ -189,12 +189,12 @@ Theme
 
    'gray-90'
 
-    'dark'
+  'dark'
 
 
 
 Variant
-   'dropdown' - Standard single select.
+    'dropdown' - Standard single select.
 
     'inline' - Minimalist, transparent background.
 
