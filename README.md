@@ -86,31 +86,32 @@ Bash
 
 
 // 1. Define your data
-const items: SelectItem[] = [
-  { id: 1, label: 'Option 1', value: 'opt-1' },
-  { id: 2, label: 'Option 2', value: 'opt-2' },
-  // ... supports 1000+ items
-];
 
-export default function MyPage() {
-  const [selected, setSelected] = useState<SelectItem[]>([]);
+                const items: SelectItem[] = [
+                  { id: 1, label: 'Option 1', value: 'opt-1' },
+                  { id: 2, label: 'Option 2', value: 'opt-2' },
+                  // ... supports 1000+ items
+                ];
 
-  return (
-    <div className="p-10">
-      <AdvancedSelect
-        label="Select Label"
-        placeholder="Choose an option"
-        items={items}
-        value={selected}
-        onChange={setSelected}
+                export default function MyPage() {
+                const [selected, setSelected] = useState<SelectItem[]>([]);
+
+                 return (
+                    <div className="p-10">
+                      <AdvancedSelect
+                        label="Select Label"
+                        placeholder="Choose an option"
+                        items={items}
+                          value={selected}
+                onChange={setSelected}
         
-        // Configuration
-        theme="gray-10"           // white | gray-10 | gray-90 | dark
-        variant="multiselect"     // dropdown | fluid | filterable-multiselect | ...
-      />
-    </div>
-  );
-}
+                // Configuration
+                theme="gray-10"           // white | gray-10 | gray-90 | dark
+                variant="multiselect"     // dropdown | fluid | filterable-multiselect | ...
+              />
+            </div>
+          );
+        }
 
 
 
