@@ -105,16 +105,15 @@ export default function MyPage() {
 
 Props (AdvancedSelectProps)
 
-        items	SelectItem[]	Required	Array of data objects to display in the list.		
-        value	SelectItem[]	[]	The currently selected item(s).		
-        onChange	(items: SelectItem[]) => void	Required	Callback function fired when selection changes.		
-        theme	Theme	white'	Color theme of the component.		
-        variant	Variant	dropdown'	Layout and functional mode of the component.		
-        label	string	Label'	The label text displayed above or inside the input.		
-        placeholder	string	Choose...'	Text displayed when no selection is made.		
-        disabled	boolean	FALSE	Disables interaction with the component.		
-
-
+Prop	Type	Default	Description
+items	SelectItem[]	Required	Array of data objects to display in the list.
+value	SelectItem[]	[]	The currently selected item(s).
+onChange	(items: SelectItem[]) => void	Required	Callback function fired when selection changes.
+theme	Theme	white'	Color theme of the component.
+variant	Variant	dropdown'	Layout and functional mode of the component.
+label	string	Label'	The label text displayed above or inside the input.
+placeholder	string	Choose...'	Text displayed when no selection is made.
+disabled	boolean	FALSE	Disables interaction with the component.
 
 Types
 
