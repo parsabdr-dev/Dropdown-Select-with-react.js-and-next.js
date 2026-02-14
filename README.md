@@ -138,9 +138,9 @@ npm install -D @types/react-window
 Here is a basic example of how to implement the component in your Next.js/React page:
 
 TypeScript
-import { useState } from 'react';
-import AdvancedSelect from '@/components/AdvancedSelect/AdvancedSelect';
-import { SelectItem } from '@/components/AdvancedSelect/types';
+        import { useState } from 'react';
+        import AdvancedSelect from '@/components/AdvancedSelect/AdvancedSelect';
+        import { SelectItem } from '@/components/AdvancedSelect/types';
 
 // 1. Define your data
 const items: SelectItem[] = [
@@ -187,31 +187,31 @@ disabled	boolean	FALSE	Disables interaction with the component.
 Types
 
 Theme
-    'white'
+        'white'
 
-    'gray-10'
+        'gray-10'
 
-    'gray-90'
+        'gray-90'
 
-   'dark'
+        'dark'
 
 
 
-Variant
+Variant                       
 
-   'dropdown' - Standard single select.
+        'dropdown' - Standard single select.
 
-   'inline' - Minimalist, transparent background.
+         'inline' - Minimalist, transparent background.
 
-   'fluid' - Full width, bottom border only.
+        'fluid' - Full width, bottom border only.
 
-   'fluid-condensed' - Smaller height fluid variant.
+        'fluid-condensed' - Smaller height fluid variant.
 
-   'multiselect' - Multiple selection with checkboxes.
+        'multiselect' - Multiple selection with checkboxes.
 
-    'filterable-multiselect' - Multiple selection with a search bar.
+        'filterable-multiselect' - Multiple selection with a search bar.
 
-   'fluid-multiselect' - Fluid layout with multiple selection.
+        'fluid-multiselect' - Fluid layout with multiple selection.
 
 
 
