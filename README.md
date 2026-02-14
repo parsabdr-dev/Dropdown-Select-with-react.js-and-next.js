@@ -21,20 +21,36 @@
 
 
 ​🎨 4 Native Themes: Full support for Carbon themes: White, Gray 10, Gray 90, and Dark (High Contrast).
-​📐 7 Layout Variants: 
+
+​📐 7 Layout Variants:
+
 ​Dropdown (Standard)
+
 ​Inline (Transparent background)
+
 ​Fluid & Fluid Condensed
+
 ​Multiselect
+
 ​Filterable Multiselect (With search input)
+
 ​Fluid Multiselect
+
 ​🚀 High Performance: Uses Virtualization (react-window) to render thousands of options instantly without lag.
+
 ​✅ Advanced Multi-Selection: 
+
 ​Checkbox UI with active states.
+
 ​Badge counter (e.g., "20 items") with a quick clear button.
+
 ​🔍 Isolated Filtering: Search functionality is scoped strictly to filterable variants, preserving state across other modes.
+
 ​♿️ Accessible: Built on top of Headless UI for full keyboard navigation and screen reader support.
+
 ​📱 Responsive: Fully styled using Tailwind CSS.
+
+
 
 ​🛠️ Installation
 
