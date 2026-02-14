@@ -42,6 +42,14 @@
         git clone https://github.com/parsabdr-dev/Dropdown-Select-with-react.js-and-next.js.git
 
 
+ Install dependencies:
+This project relies on a few key libraries. Run the following command:
+
+
+                npm install @headlessui/react @heroicons/react react-window clsx
+                npm install -D @types/react-window
+
+
 💻 Usage
 
 ​Here is a basic example of how to implement the component in your Next.js/React page:
