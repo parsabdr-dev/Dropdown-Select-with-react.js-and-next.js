@@ -183,6 +183,7 @@ disabled	boolean	FALSE	Disables interaction with the component.
 Types
 
 Theme
+
    'white'
 
    'gray-10'
@@ -194,19 +195,21 @@ Theme
 
 
 Variant
-    'dropdown' - Standard single select.
 
-    'inline' - Minimalist, transparent background.
 
-    'fluid' - Full width, bottom border only.
+  'dropdown' - Standard single select.
 
-    'fluid-condensed' - Smaller height fluid variant.
+  'inline' - Minimalist, transparent background.
 
-    'multiselect' - Multiple selection with checkboxes.
+  'fluid' - Full width, bottom border only.
 
-    'filterable-multiselect' - Multiple selection with a search bar.
+  'fluid-condensed' - Smaller height fluid variant.
 
-   'fluid-multiselect' - Fluid layout with multiple selection.
+  'multiselect' - Multiple selection with checkboxes.
+
+   'filterable-multiselect' - Multiple selection with a search bar.
+
+  'fluid-multiselect' - Fluid layout with multiple selection.
 
 
 
