@@ -39,10 +39,11 @@
 ​🛠️ Installation
 
 
-git clone https://github.com/parsabdr-dev/Dropdown-Select-with-react.js-and-next.js.git
+        git clone https://github.com/parsabdr-dev/Dropdown-Select-with-react.js-and-next.js.git
 
 
 💻 Usage
+
 ​Here is a basic example of how to implement the component in your Next.js/React page:
 
 import { useState } from 'react';
